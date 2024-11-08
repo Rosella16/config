@@ -1,0 +1,44 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: keycloak-admin-client
+          uri: lb://keycloak-admin-client
+          predicates:
+            - Path=/api/v1/users/** ,/api/v1/groups/**
+        - id: task-service
+          uri: lb://task-service
+          predicates:
+            - Path=/api/v1/tasks/**
+        #swagger
+        - id: keycloak-admin-client
+          uri: lb://keycloak-admin-client
+          predicates:
+            - Path=/v3/api-docs/keycloak-admin-client
+          filters:
+            - RewritePath=/v3/api-docs/keycloak-admin-client, /v3/api-docs
+        - id: task-service
+          uri: lb://task-service
+          predicates:
+            - Path=/v3/api-docs/task-service
+          filters:
+            - RewritePath=/v3/api-docs/task-service, /v3/api-docs
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+eureka:
+  instance:
+    prefer-ip-address: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html

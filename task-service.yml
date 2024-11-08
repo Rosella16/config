@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/task_db
+    username: postgres
+    password: rosella22
+eureka:
+  instance:
+    prefer-ip-address: true
+resilience4j:
+  keycloakAdminClient:
+    instances:
+      keycloakAdminClient:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 10
+        failureRateThreshold: 60
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 7
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+endpoints:
+  web:
+    exposure:
+      include: health, circuit breakers
+  endpoint:
+    health:
+      show-details: always

@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+      show-sql: true
+      database: postgresql
+springdoc:
+  swagger-ui:
+    tags-sorter: alpha
+    doc-expansion: false
+logging:
+  level:
+    org.springframework.web: debug
