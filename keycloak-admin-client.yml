@@ -1,13 +1,13 @@
 server:
-  port: 9696
+  port: 9797
 
 spring:
   application:
-    name: authentication-with-keycloak
+    name: keycloak-admin-client
   #Resource server configuration
   security:
     oauth2:
-      resourceserver:
+      resource server:
         jwt:
           issuer-uri: http://localhost:8080/realms/keycloak
           jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
