@@ -1,0 +1,24 @@
+spring:
+  #Resource server configuration
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/keycloak
+
+# Keycloak configuration
+keycloak:
+  realm: keycloak
+  resource: keycloak-client
+  auth-server-url: http://localhost:8080/
+  credentials:
+    secret: F0yYvuswdi0JgH1kLMY3QkNCJNDoJyho
+    client-id: keycloak-client
+    provider: secret
+# Swagger configuration
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: keycloak-client
+      client-secret: F0yYvuswdi0JgH1kLMY3QkNCJNDoJyho
+      realm: keycloak

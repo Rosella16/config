@@ -3,6 +3,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/task_db
     username: postgres
     password: rosella22
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -42,7 +43,7 @@ springdoc:
       client-secret: F0yYvuswdi0JgH1kLMY3QkNCJNDoJyho
 server:
   port: 8686
-
+#Circuit Breaker
 resilience4j:
   circuitbreaker:
     instances:

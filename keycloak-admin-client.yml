@@ -1,6 +1,5 @@
 server:
   port: 9797
-
 spring:
   application:
     name: keycloak-admin-client
