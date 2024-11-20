@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/task_db
+    url: jdbc:postgresql://localhost:5437/task_db
     username: postgres
     password: rosella22
     driver-class-name: org.postgresql.Driver
@@ -22,8 +22,8 @@ endpoints:
     oauth2:
       resource server:
         jwt:
-          issuer-uri: http://localhost:8080/realms/Mini-Project
-          jwk-set-uri: http://localhost:8080/realms/Mini-Project/protocol/openid-connect/certs
+          issuer-uri: http://localhost:8080/realms/keycloak
+          jwk-set-uri: http://localhost:8080/realms/keycloak/protocol/openid-connect/certs
 eureka:
   client:
     service-url:
