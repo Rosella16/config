@@ -22,8 +22,8 @@ endpoints:
     oauth2:
       resource server:
         jwt:
-          issuer-uri: http://localhost:8080/realms/keycloak
-          jwk-set-uri: http://localhost:8080/realms/keycloak/protocol/openid-connect/certs
+          issuer-uri: http://localhost:8080/realms/mini2
+          jwk-set-uri: http://localhost:8080/realms/mini2/protocol/openid-connect/certs
 eureka:
   client:
     service-url:
@@ -39,8 +39,8 @@ springdoc:
   swagger-ui:
     path: /task-service/swagger-ui.html
     oauth:
-      client-id: keycloak-client
-      client-secret: F0yYvuswdi0JgH1kLMY3QkNCJNDoJyho
+      client-id: mini
+      client-secret: 8uof3O0CScR9jogN6QqoRoWc9Kk2eP21
 #Circuit Breaker
 resilience4j:
   circuitbreaker:

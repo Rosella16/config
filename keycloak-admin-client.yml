@@ -12,17 +12,17 @@ spring:
     oauth2:
       resource server:
         jwt:
-          issuer-uri: http://localhost:8080/realms/keycloak
-          jwk-set-uri: http://localhost:8080/realms/keycloak/protocol/openid-connect/certs
+          issuer-uri: http://localhost:8080/realms/mini2
+          jwk-set-uri: http://localhost:8080/realms/mini2/protocol/openid-connect/certs
 
   #Keycloak Configuration
 keycloak:
-  realm: keycloak
-  resource: keycloak-client
+  realm: mini2
+  resource: mini
   auth-server-url: http://localhost:8080/auth #Docker Container
   credentials:
-    secret: F0yYvuswdi0JgH1kLMY3QkNCJNDoJyho
-    client-id: keycloak-client
+    secret: 8uof3O0CScR9jogN6QqoRoWc9Kk2eP21
+    client-id: mini
     provider: secret
 
     #Eureka client configuration
@@ -37,8 +37,8 @@ keycloak:
 springdoc:
   swagger-ui:
     oauth:
-      client-id: keycloak-client
-      client-secret: F0yYvuswdi0JgH1kLMY3QkNCJNDoJyho
-      realm: keycloak
+      client-id: mini
+      client-secret: 8uof3O0CScR9jogN6QqoRoWc9Kk2eP21
+      realm: mini2
     tags-sorter: alpha
 
