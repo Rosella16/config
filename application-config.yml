@@ -2,7 +2,7 @@ spring:
   #Resource server configuration
   security:
     oauth2:
-      resourceserver:
+      resource server:
         jwt:
           issuer-uri: http://localhost:8080/realms/keycloak
 

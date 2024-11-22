@@ -41,8 +41,6 @@ springdoc:
     oauth:
       client-id: keycloak-client
       client-secret: F0yYvuswdi0JgH1kLMY3QkNCJNDoJyho
-server:
-  port: 8686
 #Circuit Breaker
 resilience4j:
   circuitbreaker:
@@ -58,3 +56,5 @@ resilience4j:
         slowCallRateThreshold: 50       # Percentage of slow calls to trigger the circuit breaker to open
         slowCallDurationThreshold: 2s   # Time limit to consider a call as slow
         automaticTransitionFromOpenToHalfOpenEnabled: true
+  server:
+    port: 8181

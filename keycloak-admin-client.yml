@@ -1,26 +1,39 @@
+#port
 server:
-  port: 9797
+  port: 9091
+
+#Application name
 spring:
   application:
     name: keycloak-admin-client
-  #Resource server configuration
+
+  #Resource Server Configuration
   security:
     oauth2:
       resource server:
         jwt:
           issuer-uri: http://localhost:8080/realms/keycloak
-          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
-#          jwk-set-uri: http://localhost:8080/realms/myauth/protocol/openid-connect/certs
-# Keycloak configuration
+          jwk-set-uri: http://localhost:8080/realms/keycloak/protocol/openid-connect/certs
+
+  #Keycloak Configuration
 keycloak:
   realm: keycloak
-  resource: keycloak
-  auth-server-url: http://localhost:8080/
+  resource: keycloak-client
+  auth-server-url: http://localhost:8080/auth #Docker Container
   credentials:
     secret: F0yYvuswdi0JgH1kLMY3QkNCJNDoJyho
     client-id: keycloak-client
     provider: secret
-# Swagger configuration
+
+    #Eureka client configuration
+    eureka:
+      client:
+        register-with-eureka: true
+        fetch-registry: true
+        service-url:
+          defaultZone: http://localhost:8761/eureka
+
+# Swagger Configuration
 springdoc:
   swagger-ui:
     oauth:
@@ -28,3 +41,4 @@ springdoc:
       client-secret: F0yYvuswdi0JgH1kLMY3QkNCJNDoJyho
       realm: keycloak
     tags-sorter: alpha
+
